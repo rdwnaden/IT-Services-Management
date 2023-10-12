@@ -45,10 +45,27 @@
                             <field name="credential_ids" options="{'no_open':True}"/>
                         </page>
                         <page name="services_history" string="Services History">
-                            <field name="services_ids" options="{'no_open':True}"/>
+                            <field name="services_ids" options="{'no_open':True}">
+                                <tree>
+                                    <field name="part_id" attrs="{'invisible': [('state', 'not in', ['approved'])]}"/>
+                                    <field name="services_date" attrs="{'invisible': [('state', 'not in', ['approved'])]}"/>
+                                    <field name="asset_id" attrs="{'invisible': [('state', 'not in', ['approved'])]}"/>
+                                    <field name="description" attrs="{'invisible': [('state', 'not in', ['approved'])]}"/>
+                                    <field name="state" attrs="{'invisible': [('state', 'not in', ['approved'])]}"/>
+                                </tree>
+                            </field>
                         </page>
                         <page name="equipment_history" string="Equipment History">
-                            <field name="assign_ids" options="{'no_open':True}"/>
+                            <field name="assign_ids" options="{'no_open':True}">
+                                <tree>
+                                    <field name="name" attrs="{'invisible': [('state', 'not in', ['done'])]}"/>
+                                    <field name="asset_id" attrs="{'invisible': [('state', 'not in', ['done'])]}"/>
+                                    <field name="assign_date" attrs="{'invisible': [('state', 'not in', ['done'])]}"/>
+                                    <field name="old_employee_id" string="From User" attrs="{'invisible': [('state', 'not in', ['done'])]}"/>
+                                    <field name="new_employee_id" string="To User" attrs="{'invisible': [('state', 'not in', ['done'])]}"/>
+                                    <field name="state" invisible="1"/>
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
