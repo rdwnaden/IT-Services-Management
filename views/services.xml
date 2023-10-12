@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <data noupdate="1">
+
+        <!-- Sequences for itsm.assign -->
+        <record id="seq_lib_trans_1" model="ir.sequence">
+            <field name="name">Asset Repair</field>
+            <field name="code">itsm.services</field>
+            <field name="prefix">FCG/IT/ASSET/REPAIR/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+
     <!-- itsm.services form view -->
     <record id="itsm.services_view_form" model="ir.ui.view">
         <field name="name">itsm.services.view.form</field>
@@ -15,10 +28,15 @@
                     <button name="action_set_draft" states="waiting_approval" type="object" string="Set to Draft" class="btn-success" attrs="{'invisible': [('state', 'not in', ['waiting_approval'])]}"/>
                 </header>
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
                     <group name="services_details" string="Services Details">
                         <!-- Add your fields here -->
                         <group>
-                            <field name="name" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            
                             <field name="services_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                         </group>
                         <group>
@@ -48,7 +66,7 @@
         <field name="arch" type="xml">
             <tree>
                 <!-- Add your fields here -->
-                <field name="name"/>
+
                 <field name="services_date"/>
                 <field name="asset_id"/>
                 <field name="description"/>
@@ -64,7 +82,7 @@
         <field name="arch" type="xml">
             <search string="Search Description">
                 <!-- Add your fields here -->
-                <field name="name"/>
+  
                 <field name="services_date"/>
                 <field name="asset_id"/>
                 <field name="description"/>
