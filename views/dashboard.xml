@@ -9,13 +9,13 @@
             <form string="Dashboard">
                 <board style="1-2">
                     <column>
-                        
-                        <action string="Asset Report" name="%(itsm_reporting_action)d"/>
+                        <action string="IT Helpdesk Report (This Month)" name="%(itsm_ticket_report_action)d" domain="[('team_id', '=', 'Information Technology'), ('stage_id.fold', '=', 'False')]" context="{'search_default_filter_filter_this_month': True}"/>
+                        <action string="Asset Repair Report (This Month)" name="%(itsm_repair_action)d" context="{'search_default_filter_services_date': True}"/>
                     </column>
                     <column>
                         <action string="IT Helpdesk Ticket" name="%(itsm_ticket_action)d" domain="[('team_id', '=', 'Information Technology'), ('stage_id.fold', '!=', 'False')]"/>
-                        <action string="Asset Repair Report" name="%(itsm_repair_action)d"/>
                         <action string="Renewal And Subscription" name="%(itsm_renewal_action)d"/>
+                        <action string="Asset Report" name="%(itsm_reporting_action)d"/>
                     </column>
                 </board>
             </form>

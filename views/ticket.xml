@@ -31,6 +31,17 @@
         </field>
     </record>
 
+    <record id="helpdesk_ticket_inherit_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='creation_date']" position="after">
+                <filter string="This Month" name="filter_this_month" date="create_date" default_period="this_month"/>
+            </xpath>
+        </field>
+    </record>
+
     <!-- itsm.ticket action window -->
     <record id="itsm_ticket_action" model="ir.actions.act_window">
         <field name="name">Helpdesk Ticket</field>

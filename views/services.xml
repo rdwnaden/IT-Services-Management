@@ -86,6 +86,7 @@
                 <field name="services_date"/>
                 <field name="asset_id"/>
                 <field name="description"/>
+                <filter name="filter_services_date" date="services_date" default_period="this_month"/>
             </search>
         </field>
     </record>

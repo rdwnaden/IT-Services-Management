@@ -9,6 +9,7 @@
         <field name="arch" type="xml">
             <xpath expr="//graph" position="attributes">
                 <attribute name="stacked">false</attribute>
+                <attribute name="type">pie</attribute>
             </xpath>
             <xpath expr="//field[@name='stage_id']" position="replace">
                 <field name="ticket_type_id"/>
@@ -115,6 +116,6 @@
     <menuitem id="_menu_act_repair" name="Asset Repair Report" action="itsm_repair_action" parent="_menu_reporting" sequence="160"/>
 
     <!-- This Menu Item Must have a parent & action -->
-    <menuitem id="_menu_act_ticket" name="IT Helpdesk Ticket Report" action="itsm_ticket_report_action" parent="_menu_reporting" sequence="165"/>
+    <menuitem id="_menu_act_report_ticket" name="IT Helpdesk Ticket Report" action="itsm_ticket_report_action" parent="_menu_reporting" sequence="165"/>
 
 </odoo>
