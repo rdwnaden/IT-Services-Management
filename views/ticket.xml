@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="helpdesk_ticket_inherit_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.tree.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="default_order">create_date desc</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="replace">
+                <field name="name" string="Subject"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="ticket_type_id"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="replace">
+                <field name="partner_id" string="Employee"/>
+            </xpath>
+            <xpath expr="//field[@name='priority']" position="replace">
+                <field name="priority" optional="hide"/>
+            </xpath>
+            <xpath expr="//field[@name='activity_ids']" position="replace">
+                <field name="activity_ids" optional="hide"/>
+            </xpath>
+            <xpath expr="//field[@name='sla_deadline']" position="replace">
+                <field name="sla_deadline" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- itsm.ticket action window -->
+    <record id="itsm_ticket_action" model="ir.actions.act_window">
+        <field name="name">Helpdesk Ticket</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="helpdesk_ticket_inherit_tree"/>
+        <field name="domain">[('team_id','=','Information Technology')]</field>
+        <field name="context">{'search_default_my_ticket': True}</field>
+    </record>
+
+    <!-- This Menu Item Must have a parent & action -->
+    <menuitem id="_menu_act_ticket" name="Ticket" action="itsm_ticket_action" parent="_menu_itsm" sequence="30"/>
+
+</odoo>

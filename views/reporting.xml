@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="helpdesk_ticket_inherit_graph" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.graph.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_graph_main"/>
+        <field name="arch" type="xml">
+            <xpath expr="//graph" position="attributes">
+                <attribute name="stacked">false</attribute>
+            </xpath>
+            <xpath expr="//field[@name='stage_id']" position="replace">
+                <field name="ticket_type_id"/>
+            </xpath>
+            <xpath expr="//field[@name='rating_last_value']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='close_hours']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='assign_hours']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
     <!-- itsm.services graph view -->
     <record id="itsm.services_view_graph" model="ir.ui.view">
         <field name="name">itsm.services.view.graph</field>
@@ -54,6 +78,16 @@
         </field>
     </record>
 
+    <!-- itsm_ticket action window -->
+    <record id="itsm_ticket_report_action" model="ir.actions.act_window">
+        <field name="name">IT Helpdesk Ticket Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="view_id" ref="helpdesk_ticket_inherit_graph"/>
+        <field name="domain">[('team_id','=','Information Technology')]</field>
+    </record>    
+
     <!-- itsm_repair action window -->
     <record id="itsm_repair_action" model="ir.actions.act_window">
         <field name="name">Asset Repair Report</field>
@@ -79,5 +113,8 @@
 
      <!-- This Menu Item Must have a parent & action -->
     <menuitem id="_menu_act_repair" name="Asset Repair Report" action="itsm_repair_action" parent="_menu_reporting" sequence="160"/>
+
+    <!-- This Menu Item Must have a parent & action -->
+    <menuitem id="_menu_act_ticket" name="IT Helpdesk Ticket Report" action="itsm_ticket_report_action" parent="_menu_reporting" sequence="165"/>
 
 </odoo>
