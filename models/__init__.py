@@ -10,3 +10,4 @@ from . import renewal
 from . import category
 from . import brands
 from . import location
+from . import part

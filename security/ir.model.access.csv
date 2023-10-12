@@ -8,3 +8,4 @@ access_itsm_renewal,itsm.renewal,model_itsm_renewal,,1,1,1,1
 access_itsm_category,itsm.category,model_itsm_category,,1,1,1,1
 access_itsm_brands,itsm.brands,model_itsm_brands,,1,1,1,1
 access_itsm_location,itsm.location,model_itsm_location,,1,1,1,1
+access_itsm_part,itsm.part,model_itsm_part,,1,1,1,1

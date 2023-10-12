@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- itsm.part tree view -->
+<record id="itsm.part_view_tree" model="ir.ui.view">
+    <field name="name">itsm.part.view.tree</field>
+    <field name="model">itsm.part</field>
+    <field name="arch" type="xml">
+        <tree string="Part" editable="bottom">
+            <!-- Add your fields here -->
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+
+<!-- itsm_part action window -->
+<record id="itsm_part_action" model="ir.actions.act_window">
+    <field name="name">Master Part</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">itsm.part</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<!-- This Menu Item Must have a parent & action -->
+<menuitem id="_menu_act_part" name="Part" action="itsm_part_action" parent="_menu_configuration" sequence="220"/>    
+
+</odoo>

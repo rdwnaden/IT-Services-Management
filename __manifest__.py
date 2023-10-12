@@ -39,6 +39,7 @@
         'views/category.xml',
         'views/brands.xml',
         'views/location.xml',
+        'views/part.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
