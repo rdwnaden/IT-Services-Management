@@ -21,7 +21,10 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+<!-- This Menu Item Must have a parent & action -->
+    <menuitem id="_menu_location" name="Asset Assignment" parent="_menu_configuration" sequence="215"/>
+
     <!-- This Menu Item Must have a parent & action -->
-    <menuitem id="_menu_act_location" name="Location" action="itsm_location_action" parent="_menu_configuration" sequence="215"/>
+    <menuitem id="_menu_act_location" name="Location" action="itsm_location_action" parent="_menu_location" sequence="216"/>
 
 </odoo>

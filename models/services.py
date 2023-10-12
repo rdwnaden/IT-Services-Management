@@ -9,6 +9,7 @@ class Services(models.Model):
     _description = 'Services'
 
     name = fields.Char('Form Number', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'),)
+    part_id = fields.Many2one('itsm.part', string='Part Name', tracking=True)
     services_date = fields.Date('Services Date', tracking=True)
     description = fields.Text('Description', tracking=True)
     asset_id = fields.Many2one('itsm.asset', string='Asset Number', tracking=True)

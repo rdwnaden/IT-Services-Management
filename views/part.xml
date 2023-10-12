@@ -22,6 +22,9 @@
 </record>
 
 <!-- This Menu Item Must have a parent & action -->
-<menuitem id="_menu_act_part" name="Part" action="itsm_part_action" parent="_menu_configuration" sequence="220"/>    
+<menuitem id="_menu_part" name="Asset Repair" parent="_menu_configuration" sequence="220"/>  
+
+<!-- This Menu Item Must have a parent & action -->
+<menuitem id="_menu_act_part" name="Part" action="itsm_part_action" parent="_menu_part" sequence="221"/>    
 
 </odoo>

@@ -24,7 +24,10 @@
     <!-- This Menu Item Must have a parent -->
     <menuitem id="_menu_configuration" name="Configuration" parent="_menu_itsm" sequence="200"/>
 
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="_menu_asset_category" name="Asset" parent="_menu_configuration" sequence="201"/>
+
     <!-- This Menu Item Must have a parent & action -->
-    <menuitem id="_menu_act_category" name="Asset Category" action="itsm_category_action" parent="_menu_configuration" sequence="205"/>
+    <menuitem id="_menu_act_category" name="Asset Category" action="itsm_category_action" parent="_menu_asset_category" sequence="205"/>
 
 </odoo>

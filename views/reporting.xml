@@ -9,7 +9,7 @@
             <graph string="Graph Description" stacked="false">
                 <!-- Add your fields here -->
                 <field name="company_id"/>
-                <field name="name"/>
+                <field name="part_id"/>
             </graph>
         </field>
     </record>
@@ -34,7 +34,7 @@
         <field name="arch" type="xml">
             <pivot string="Pivot Description">
                 <!-- Add your fields here -->
-                <field name="name" type="row"/>
+                <field name="part_id" type="row"/>
                 <field name="asset_id" type="row"/>
                 <field name="state" type="col"/>
             </pivot>

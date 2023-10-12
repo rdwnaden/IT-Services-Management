@@ -36,7 +36,7 @@
                     <group name="services_details" string="Services Details">
                         <!-- Add your fields here -->
                         <group>
-                            
+                            <field name="part_id" options="{'no_open':True,'no_create':True}" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                             <field name="services_date" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                         </group>
                         <group>
@@ -66,7 +66,7 @@
         <field name="arch" type="xml">
             <tree>
                 <!-- Add your fields here -->
-
+                <field name="part_id"/>
                 <field name="services_date"/>
                 <field name="asset_id"/>
                 <field name="description"/>
@@ -82,7 +82,7 @@
         <field name="arch" type="xml">
             <search string="Search Description">
                 <!-- Add your fields here -->
-  
+                <field name="part_id"/>
                 <field name="services_date"/>
                 <field name="asset_id"/>
                 <field name="description"/>
