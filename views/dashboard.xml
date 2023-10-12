@@ -7,18 +7,18 @@
         <field name="model">board.board</field>
         <field name="arch" type="xml">
             <form string="Dashboard">
-                <board style="2-2">
+                <board style="1-2">
                     <column>
                         <action string="Asset Report" name="%(itsm_reporting_action)d"/>
-                        <action string="Renewal And Subscription" name="%(itsm_renewal_action)d"/>
                     </column>
                     <column>
                         <action string="Asset Repair Report" name="%(itsm_repair_action)d"/>
+                        <action string="Renewal And Subscription" name="%(itsm_renewal_action)d"/>
                     </column>
                 </board>
             </form>
         </field>
-    </record>
+    </record> 
 
     <!-- itsm_dashboard action window -->
     <record id="itsm_dashboard_action" model="ir.actions.act_window">
@@ -27,7 +27,7 @@
         <field name="res_model">board.board</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="itsm.dashboard_view_form"/>
-    </record>
+    </record> 
 
     <!-- This Menu Root -->
     <menuitem id="_menu_itsm" name="IT Services Management" web_icon="itsm,static/description/icon.png"/>

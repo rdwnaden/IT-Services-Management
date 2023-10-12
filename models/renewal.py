@@ -27,6 +27,7 @@ class Renewal(models.Model):
         ('yearly', 'Yearly'),
     ], string='Payment Period', Tracking=True)
     remarks = fields.Text(string='Remarks')
+    expired_date = fields.Date(string='Expired Date', related='activity_date_deadline', store=True, readonly=True)
     
 
     _sql_constraints = [
