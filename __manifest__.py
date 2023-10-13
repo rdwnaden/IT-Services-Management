@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','board','helpdesk'],
+    'depends': ['base','mail','board','helpdesk','project'],
 
     # always loaded
     'data': [
@@ -41,6 +41,7 @@
         'views/brands.xml',
         'views/location.xml',
         'views/part.xml',
+        'views/project.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

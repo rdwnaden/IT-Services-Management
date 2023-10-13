@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="project_project_inherit_form" model="ir.ui.view">
+        <field name="name">project.project.view.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="department_ids" widget="many2many_tags" options="{'no_open':True,'no_create':True}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_project_inherit_tree" model="ir.ui.view">
+        <field name="name">project.project.view.tree.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="department_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_project_inherit_kanban" model="ir.ui.view">
+        <field name="name">project.project.view.kanban.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='o_primary']" position="after">
+                <field name="department_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- project.project action window -->
+    <record id="itsm_project_action" model="ir.actions.act_window">
+        <field name="name">Project</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="project.project_view_kanban_inherit_project"/>
+        <field name="domain">[("department_ids", "ilike", "Information Technology")]</field>
+    </record>
+
+    <!-- This Menu Item Must have a parent & action -->
+    <menuitem id="_menu_act_project" name="Project" action="itsm_project_action" parent="_menu_task" sequence="40"/>
+
+</odoo>
