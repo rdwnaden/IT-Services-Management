@@ -45,6 +45,9 @@
     </record>
 
     <!-- This Menu Item Must have a parent & action -->
-    <menuitem id="_menu_act_project" name="Project" action="itsm_project_action" parent="_menu_task" sequence="40"/>
+    <menuitem id="_menu_parent_project" name="Project" parent="_menu_task" sequence="40"/>
+
+    <!-- This Menu Item Must have a parent & action -->
+    <menuitem id="_menu_act_project" name="IT Project" action="itsm_project_action" parent="_menu_parent_project" sequence="41"/>
 
 </odoo>

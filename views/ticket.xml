@@ -57,6 +57,9 @@
     <menuitem id="_menu_task" name="Task" parent="_menu_itsm" sequence="30"/>
 
     <!-- This Menu Item Must have a parent & action -->
-    <menuitem id="_menu_act_ticket" name="My Ticket" action="itsm_ticket_action" parent="_menu_task" sequence="35"/>
+    <menuitem id="_menu_parent_ticket" name="Helpdesk Ticket" parent="_menu_task" sequence="31"/>
+
+    <!-- This Menu Item Must have a parent & action -->
+    <menuitem id="_menu_act_ticket" name="My Ticket" action="itsm_ticket_action" parent="_menu_parent_ticket" sequence="32"/>
 
 </odoo>
