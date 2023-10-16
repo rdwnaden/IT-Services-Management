@@ -11,6 +11,8 @@ class Assign(models.Model):
     name = fields.Char('Form Number', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'),)
     asset_id = fields.Many2one('itsm.asset', string='Asset Number', Tracking=True)
     category_id = fields.Many2one(string='Category', related='asset_id.category_id', readonly=True)
+    brand_id = fields.Many2one(string='Brand', related='asset_id.brand_id', readonly=True)
+    system_model = fields.Char(string='System Model', related='asset_id.system_model', readonly=True)
     old_employee_id = fields.Many2one(string='Used By', related='asset_id.used_id', readonly=True) 
     new_employee_id = fields.Many2one('hr.employee', string='New User', Tracking=True, store=True)
     old_location_id = fields.Many2one(string='Location', related='asset_id.location_id', readonly=True)

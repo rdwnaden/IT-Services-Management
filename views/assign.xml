@@ -38,6 +38,8 @@
                         <group>
                             <field name="asset_id" options="{'no_open':True,'no_create':True}" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
                             <field name="category_id" options="{'no_open':True}"/>
+                            <field name="brand_id" options="{'no_open':True}"/>
+                            <field name="system_model" options="{'no_open':True}"/>
                             <field name="old_employee_id" options="{'no_open':True,'no_create':True}"/>
                             <field name="old_location_id" options="{'no_open':True,'no_create':True}"/>
                         </group>

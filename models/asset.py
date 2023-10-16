@@ -22,7 +22,7 @@ class Asset(models.Model):
     assign_ids = fields.One2many('itsm.assign', 'asset_id', string='Asset Number', readonly=True)
     credential_ids = fields.One2many('itsm.credential', 'asset_id', string='Credentials', readonly=True)
     used_id = fields.Many2one(string='Used By', related='assign_ids.new_employee_id', readonly=True)
-    location_id = fields.Many2one(string='Location', related='assign_ids.new_location_id', readonly=True)
+    location_id = fields.Many2one(string='Location', related='assign_ids.new_location_id', store=True, readonly=True)
     
     _sql_constraints = [
                      ('name', 

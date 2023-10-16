@@ -15,7 +15,7 @@
                     <column>
                         <action string="IT Helpdesk Ticket" name="%(itsm_ticket_action)d" domain="[('team_id', '=', 'Information Technology'), ('stage_id.fold', '!=', 'False')]"/>
                         <action string="Renewal And Subscription" name="%(itsm_renewal_action)d"/>
-                        <action string="Asset Report" name="%(itsm_reporting_action)d"/>
+                        <action string="Total Asset IT Department" name="%(itsm_reporting_action)d"/>
                     </column>
                 </board>
             </form>
