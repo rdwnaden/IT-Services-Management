@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- helpdesk.ticket inherit form view -->
+    <record id="helpdesk_ticket_inherit_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.form.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='priority']" position="after">
+                <field name="ticket_type_new_id" string="Ticket Type" options="{'no_open':True,'no_create':True}"/>
+            </xpath>
+            <xpath expr="//field[@name='ticket_type_id']" position="before">
+                <field name="ticket_category_id" string="Category" options="{'no_open':True,'no_create':True}"/>
+            </xpath>
+            <xpath expr="//field[@name='ticket_category_id']" position="after">
+                <field name="asset_id" string="Asset Number" options="{'no_open':True,'no_create':True}" attrs="{'invisible': [('ticket_category_id','!=','Hardware')]}"/>
+            </xpath>
+            <xpath expr="//field[@name='ticket_type_id']" position="replace">
+                <field name="ticket_type_id" options="{'no_open':True,'no_create':True}"/>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="replace">
+                <field name="tag_ids" string="Item Type" widget="many2many_tags" options="{'no_open':True,'no_create':True}"/>
+            </xpath>
+        </field>
+    </record>  
+
+    <!-- helpdesk.ticket inherit tree view -->
     <record id="helpdesk_ticket_inherit_tree" model="ir.ui.view">
         <field name="name">helpdesk.ticket.view.tree.inherit</field>
         <field name="model">helpdesk.ticket</field>
@@ -12,9 +37,6 @@
             </xpath>
             <xpath expr="//field[@name='name']" position="replace">
                 <field name="name" string="Subject"/>
-            </xpath>
-            <xpath expr="//field[@name='name']" position="after">
-                <field name="ticket_type_id"/>
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="replace">
                 <field name="partner_id" string="Employee"/>
@@ -31,6 +53,7 @@
         </field>
     </record>
 
+    <!-- helpdesk.ticket inherit search view -->
     <record id="helpdesk_ticket_inherit_search" model="ir.ui.view">
         <field name="name">helpdesk.ticket.view.search.inherit</field>
         <field name="model">helpdesk.ticket</field>
@@ -42,7 +65,7 @@
         </field>
     </record>
 
-    <!-- itsm.ticket action window -->
+    <!-- helpdesk.ticket action window -->
     <record id="itsm_ticket_action" model="ir.actions.act_window">
         <field name="name">Helpdesk Ticket</field>
         <field name="type">ir.actions.act_window</field>

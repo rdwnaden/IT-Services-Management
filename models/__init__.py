@@ -12,3 +12,6 @@ from . import brands
 from . import location
 from . import part
 from . import project
+from . import ticket
+from . import ticket_type
+from . import ticket_category

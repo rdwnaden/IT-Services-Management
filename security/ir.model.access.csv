@@ -9,3 +9,5 @@ access_itsm_category,itsm.category,model_itsm_category,,1,1,1,1
 access_itsm_brands,itsm.brands,model_itsm_brands,,1,1,1,1
 access_itsm_location,itsm.location,model_itsm_location,,1,1,1,1
 access_itsm_part,itsm.part,model_itsm_part,,1,1,1,1
+access_ticket_type,ticket.type,model_ticket_type,,1,1,1,1
+access_ticket_category,ticket.category,model_ticket_category,,1,1,1,1

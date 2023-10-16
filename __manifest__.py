@@ -42,6 +42,8 @@
         'views/location.xml',
         'views/part.xml',
         'views/project.xml',
+        'views/ticket_type.xml',
+        'views/ticket_category.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

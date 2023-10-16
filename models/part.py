@@ -9,4 +9,8 @@ class part(models.Model):
 
     name = fields.Char(string='Part Name')
     
-    
+    _sql_constraints = [
+                     ('name', 
+                      'unique(name)',
+                      'Item Name Already Exist!')
+    ]

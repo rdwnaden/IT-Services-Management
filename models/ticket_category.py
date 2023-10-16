@@ -3,9 +3,8 @@
 from odoo import models, fields, api
 
 
-class Category(models.Model):
-    _name = 'itsm.category'
-    _description = 'Category'
+class Ticket_category(models.Model):
+    _name = 'ticket.category'
 
     name = fields.Char(string='Name')
     

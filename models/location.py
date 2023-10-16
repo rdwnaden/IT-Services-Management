@@ -9,4 +9,8 @@ class Location(models.Model):
 
     name = fields.Char(string='Name')
     
-    
+    _sql_constraints = [
+                     ('name', 
+                      'unique(name)',
+                      'Item Name Already Exist!')
+    ]
